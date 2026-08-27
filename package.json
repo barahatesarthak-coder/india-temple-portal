@@ -1,0 +1,25 @@
+{
+  "name": "india-temple-heritage-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A centralized digital portal for India Temple Heritage, Sacred Rituals, Festivals, Darshan Timings, and Pilgrimage Circuits.",
+  "scripts": {
+    "dev": "node -e \"console.log('To run development:\\n1. In terminal 1: cd backend && npm run dev\\n2. In terminal 2: cd frontend && npm run dev')\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix backend start"
+  },
+  "keywords": [
+    "india-temple-portal",
+    "temple-heritage",
+    "pilgrimage-circuits",
+    "incredible-india",
+    "react",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Unified Mentor Internship",
+  "license": "MIT"
+}

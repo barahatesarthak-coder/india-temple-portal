@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛕</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>India Temple Heritage & Pilgrimage Information Portal</title>
+    <meta name="description" content="Handcrafted Indian cultural heritage portal featuring interactive architectural anatomy (Nagara, Dravidian, Vesara), live 24h darshan rush heatmaps, pilgrimage circuit planners, and sthalapurana audio legends." />
+    
+    <!-- Google Fonts: Cinzel, Cormorant Garamond, Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sandstone: {
+                50: '#FDFBF7',
+                100: '#FAF4EB',
+                200: '#F5EBE1',
+                300: '#EFE3D3',
+                400: '#E2D1BD',
+                500: '#CDB9A1',
+                600: '#B49E85',
+                700: '#8E7760',
+                800: '#5C4A3A',
+                900: '#2D241E',
+              },
+              terracotta: {
+                50: '#FDF4F2',
+                100: '#FBE6E2',
+                200: '#F5CDC6',
+                300: '#EAA69A',
+                400: '#DC7663',
+                500: '#C05621',
+                600: '#A43E1B',
+                700: '#7A2E1E',
+                800: '#5A1F13',
+                900: '#3D130B',
+              },
+              brass: {
+                50: '#FBF8EE',
+                100: '#F7EED2',
+                200: '#EFDCA5',
+                300: '#E5C672',
+                400: '#DBB144',
+                500: '#D4AF37', // Temple Gold / Brass
+                600: '#B8860B',
+                700: '#996515',
+                800: '#6C480E',
+                900: '#402905',
+              },
+              charcoal: {
+                50: '#F7F6F5',
+                100: '#ECE9E6',
+                200: '#D6D0CB',
+                300: '#B8AEA6',
+                400: '#8A7D73',
+                500: '#5F5349',
+                600: '#4A3E36',
+                700: '#382E27',
+                800: '#2D241E',
+                900: '#1A1410',
+              }
+            },
+            fontFamily: {
+              serif: ['Cinzel', 'Cormorant Garamond', 'Playfair Display', 'Georgia', 'serif'],
+              sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              'heritage': '0 4px 20px -2px rgba(122, 46, 30, 0.08), 0 2px 6px -1px rgba(212, 175, 55, 0.06)',
+              'heritage-lg': '0 10px 30px -4px rgba(122, 46, 30, 0.12), 0 4px 12px -2px rgba(212, 175, 55, 0.1)',
+            },
+            backgroundImage: {
+              'sandstone-gradient': 'linear-gradient(180deg, #FDFBF7 0%, #FAF4EB 100%)',
+              'terracotta-gradient': 'linear-gradient(135deg, #7A2E1E 0%, #A43E1B 50%, #C05621 100%)',
+              'brass-gradient': 'linear-gradient(135deg, #D4AF37 0%, #F59E0B 50%, #B8860B 100%)',
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom CSS Styles -->
+    <style>
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #FDFBF7;
+        color: #2D241E;
+      }
+      h1, h2, h3, .font-serif {
+        font-family: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+      }
+      @keyframes diyaFlicker {
+        0%, 100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+          filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8)) drop-shadow(0 0 18px rgba(212, 175, 55, 0.6));
+        }
+        25% {
+          opacity: 0.85;
+          transform: scale(0.96) translateY(-1px);
+          filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.7)) drop-shadow(0 0 14px rgba(212, 175, 55, 0.5));
+        }
+        50% {
+          opacity: 0.95;
+          transform: scale(1.04) translateY(1px);
+          filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.9)) drop-shadow(0 0 22px rgba(212, 175, 55, 0.7));
+        }
+        75% {
+          opacity: 0.88;
+          transform: scale(0.98) translateY(-0.5px);
+          filter: drop-shadow(0 0 7px rgba(245, 158, 11, 0.75)) drop-shadow(0 0 16px rgba(212, 175, 55, 0.55));
+        }
+      }
+      .animate-diya-flame {
+        animation: diyaFlicker 2.5s infinite ease-in-out;
+        transform-origin: center bottom;
+      }
+      .terracotta-card {
+        background: linear-gradient(145deg, #FFFFFF 0%, #FAF4EB 100%);
+        border: 1px solid rgba(122, 46, 30, 0.12);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .terracotta-card:hover {
+        border-color: rgba(192, 86, 33, 0.4);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px -4px rgba(122, 46, 30, 0.14), 0 4px 12px rgba(212, 175, 55, 0.12);
+      }
+      @keyframes pulseRing {
+        0% { transform: scale(0.8); opacity: 0.8; }
+        50% { transform: scale(1.6); opacity: 0.1; }
+        100% { transform: scale(2.2); opacity: 0; }
+      }
+      .hotspot-pulse::before {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: 9999px;
+        background: rgba(212, 175, 55, 0.6);
+        animation: pulseRing 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+        pointer-events: none;
+      }
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: #FAF4EB; }
+      ::-webkit-scrollbar-thumb { background: #CDB9A1; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #7A2E1E; }
+    </style>
+
+    <!-- React 18, ReactDOM 18 & Babel Standalone -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body class="bg-sandstone-50 text-charcoal-800 antialiased selection:bg-brass-500 selection:text-charcoal-900">
+    <div id="root">
+      <!-- Immediate Loading / Fallback Screen while scripts initialize -->
+      <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #FAF4EB; font-family: 'Cinzel', Georgia, serif; text-align: center; padding: 20px;">
+        <div style="font-size: 42px; margin-bottom: 12px;">🛕</div>
+        <h2 style="font-size: 24px; font-weight: bold; color: #7A2E1E; margin-bottom: 6px;">DEVALAYA</h2>
+        <p style="font-size: 13px; color: #8E7760; font-family: 'Plus Jakarta Sans', sans-serif;">Loading India Temple Heritage & Pilgrimage Portal...</p>
+      </div>
+    </div>
+
+    <!-- Application Script -->
+    <script type="text/javascript" src="./bundle_data.js"></script>
+    <script type="text/babel" src="./portal_app.jsx"></script>
+  </body>
+</html>

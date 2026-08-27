@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Accessible focus rings */
+  :focus-visible {
+    outline: 2px solid #d97706;
+    outline-offset: 2px;
+  }
+}
+
+/* Custom Heritage Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b45309;
+}
+
+.font-serif-heading {
+  font-family: 'Cinzel', serif;
+}
+
+.bg-pattern-subtle {
+  background-color: #fafaf9;
+  background-image: radial-gradient(#e7e5e4 0.75px, transparent 0.75px), radial-gradient(#e7e5e4 0.75px, #fafaf9 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(231, 229, 228, 0.8);
+}
