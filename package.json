@@ -7,7 +7,7 @@
     "dev": "node -e \"console.log('To run development:\\n1. In terminal 1: cd backend && npm run dev\\n2. In terminal 2: cd frontend && npm run dev')\"",
     "dev:backend": "npm --prefix backend run dev",
     "dev:frontend": "npm --prefix frontend run dev",
-    "build": "npm --prefix frontend run build",
+    "build": "npm --prefix frontend run build && node -e \"const fs=require('fs'); fs.cpSync('frontend/dist', 'dist', {recursive:true});\"",
     "start": "npm --prefix backend start"
   },
   "keywords": [
