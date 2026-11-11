@@ -1,16 +1,19 @@
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'india_temple_heritage_jwt_super_secret_2026';
-const JWT_EXPIRES_IN = '7d';
-
-export const generateToken = (payload) => {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+const getSecret = () => {
+  const secret = process.env.JWT_SECRET;
+  if (!secret && process.env.NODE_ENV === 'production') {
+    throw new Error('JWT_SECRET must be set in production.');
+  }
+  return secret || 'local-development-only-change-this-secret';
 };
+
+export const generateToken = (payload) => jwt.sign(payload, getSecret(), { expiresIn: '7d' });
 
 export const verifyToken = (token) => {
   try {
-    return jwt.verify(token, JWT_SECRET);
-  } catch (error) {
+    return jwt.verify(token, getSecret());
+  } catch {
     return null;
   }
 };
