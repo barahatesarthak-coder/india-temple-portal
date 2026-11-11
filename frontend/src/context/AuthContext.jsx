@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
         try {
           const freshUser = await authService.getMe();
           setUser(freshUser);
+          setToken(storedToken);
         } catch (err) {
           console.warn('Stored session expired or invalid:', err.message);
           authService.logout();
@@ -48,14 +49,6 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
   };
 
-  const demoLogin = async (role = 'admin') => {
-    if (role === 'admin') {
-      return login('admin@heritage.gov.in', 'AdminPassword123!');
-    } else {
-      return login('ananya.pilgrim@example.com', 'PilgrimPassword123!');
-    }
-  };
-
   const value = {
     user,
     token,
@@ -64,8 +57,7 @@ export const AuthProvider = ({ children }) => {
     isAdmin: Boolean(user && user.role === 'admin'),
     login,
     register,
-    logout,
-    demoLogin
+    logout
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
