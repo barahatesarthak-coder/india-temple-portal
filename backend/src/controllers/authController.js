@@ -4,7 +4,7 @@ import dataStore from '../services/dataStore.js';
 
 export const register = async (req, res, next) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
       return res.status(400).json({
@@ -20,12 +20,11 @@ export const register = async (req, res, next) => {
       });
     }
 
-    const assignedRole = role === 'admin' ? 'admin' : 'user';
     const user = await dataStore.createUser({
       name: name.trim(),
       email: email.trim().toLowerCase(),
       password,
-      role: assignedRole
+      role: 'user'
     });
 
     const token = generateToken({
